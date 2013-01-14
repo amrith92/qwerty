@@ -1,0 +1,25 @@
+#############################################
+             qwerty 0.1
+#############################################
+
+README
+
+Well, it's simple to setup, really.
+Just run:
+:$ make
+
+from your terminal. You'll find the
+program in the bin folder that this
+came with.
+
+--------------------------------------------
+
+qwerty needs no external C librraries in
+order to compile & run. This means that
+it will run pretty much on any *nix box!
+
+--------------------------------------------
+
+@author Amrith Nayak
+@email  amrith92@gmail.com
+
