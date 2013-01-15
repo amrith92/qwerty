@@ -208,6 +208,14 @@ ScreenState screen_set_col(Screen *screen, const uint16_t pos)
 	return SCR_NORMAL;
 }
 
+ScreenState screen_set_row_pos(Screen *screen, const uint16_t pos)
+{
+	if (pos > screen->max_row)
+		return SCR_SCROLL_BOTTOM;
+	screen->pos.row = pos;
+	return SCR_NORMAL;
+}
+
 ScreenState screen_move_col_right(Screen *screen)
 {
 	if (screen->pos.col >= screen->max_col)
@@ -261,7 +269,7 @@ void screen_flush_out(Screen *screen)
 				putchar('0');
 				putchar('m');
 			}
-			if ( i == screen->pos.row && j == screen->pos.col - 1) {
+			if ( i == screen->pos.row && j == ((screen->pos.col > 0) ? screen->pos.col - 1 : 0)) {
 				putchar('\033');
 				putchar('[');
 				putchar('7');

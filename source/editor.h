@@ -42,6 +42,11 @@ extern uint8_t editor_init(Editor *editor, const char *tgt);
 extern void editor_release(Editor *editor);
 
 /**
+ *	Load file contents if content already exists
+ */
+extern void editor_load_from_file(Editor *editor);
+
+/**
  *	Editor's main loop
  */
 extern void editor_loopy(Editor *editor);

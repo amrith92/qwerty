@@ -20,9 +20,10 @@ uint8_t editor_init(Editor *editor, const char *tgt)
 	strcpy(editor->tempname, tgt);
 	strcat(editor->tempname, "~");
 
-	editor->target = fopen(tgt, "w+");
+	editor->target = fopen(tgt, "a+");
 	if (editor->target == NULL)
 		return 2;
+	fseek(editor->target, 0, SEEK_SET);
 
 	editor->backup = fopen(editor->tempname, "w");
 	if (editor->backup == NULL) {
@@ -44,6 +45,7 @@ uint8_t editor_init(Editor *editor, const char *tgt)
 	}
 
 	screen_init(&editor->screen, (const unsigned char *) tgt);
+	editor_load_from_file(editor);
 
 	gEditor = editor;
 
@@ -64,6 +66,22 @@ void editor_release(Editor *editor)
 	screen_release(&editor->screen);
 }
 
+void editor_load_from_file(Editor *editor)
+{
+	int c = 0;
+	if (editor == NULL)
+		return;
+	do {
+		c = fgetc(editor->target);
+		if (c != EOF)
+			editor_input(editor, (unsigned char) c);
+	} while (c != EOF);
+
+	screen_reset_col(&editor->screen);
+	screen_set_row_pos(&editor->screen, 0 + PRE_EDITOR);
+	editor->cur = editor->head;
+}
+
 void editor_loopy(Editor *editor)
 {
 	unsigned char c = 0;
@@ -71,7 +89,7 @@ void editor_loopy(Editor *editor)
 	signal(SIGALRM, editor_perform_backup);
 	alarm(BACKUP_TIMEOUT);
 	while(1) {
-		if (183 != c && 184 != c && 185 != c && 186 != c && 178 != c && 176 != c && 169 != c)
+		if (/*183 != c && 184 != c && 185 != c && 186 != c &&  178 != c && 176 != c && */ 169 != c)
 			screen_flush_out(&editor->screen);
 		c = editor_getch();
 		/*editor->is_dirty = 1;
@@ -134,6 +152,9 @@ void editor_input(Editor *editor, const unsigned char in)
 			memset(editor->cur->line.buffer, 0, BUFSIZE);
 			screen_clear_line(&editor->screen);
 			screen_reset_col(&editor->screen);
+			if (editor->cur->next != NULL) {
+				screen_shift_up(&editor->screen, NULL);
+			}
 			screen_retreat_row(&editor->screen);
 		} else {
 			if (!tty_line_buffer_list_del(&editor->cur)) {

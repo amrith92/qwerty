@@ -127,6 +127,11 @@ extern void screen_reset_col(Screen *screen);
 extern ScreenState screen_set_col(Screen *screen, const uint16_t pos);
 
 /**
+ *	Set row position
+ */
+extern ScreenState screen_set_row_pos(Screen *screen, const uint16_t pos);
+
+/**
  *	Move column position right. The same logic applies to this as
  *	screen_advance_row
  */
