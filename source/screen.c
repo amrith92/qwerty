@@ -1,5 +1,6 @@
 #include "screen.h"
 #include "colours.h"
+#include "textproperties.h"
 #include <stdlib.h>
 #include <string.h>
 #include <inttypes.h>
@@ -135,9 +136,9 @@ ScreenState screen_putc(Screen *screen, const unsigned char c)
 		*/
 	}
 	if ('\t' == c) {
-		for (i = screen->pos.col; i < 4; ++i)
+		for (i = screen->pos.col; i < TAB_SIZE; ++i)
 			screen->buffer[screen->pos.row][i] = ' ';
-		screen->pos.col += 4;
+		screen->pos.col += TAB_SIZE;
 	} else {
 		screen->buffer[screen->pos.row][screen->pos.col++] = c;
 	}

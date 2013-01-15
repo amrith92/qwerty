@@ -1,4 +1,5 @@
 #include "editor.h"
+#include "textproperties.h"
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
@@ -203,7 +204,9 @@ void editor_input(Editor *editor, const unsigned char in)
 
 	case 176: /* END key */
 		editor->cur->line.insertionPoint = editor->cur->line.length;
-		screen_set_col(&editor->screen, editor->cur->line.insertionPoint);
+		for (i = 0, tmp = 0; i < editor->cur->line.length; ++i)
+			tmp += (editor->cur->line.buffer[i] == '\t') ? TAB_SIZE : 1;
+		screen_set_col(&editor->screen, (unsigned int) tmp);
 	break;
 
 	case 183: /* UP arrow key */
@@ -212,7 +215,9 @@ void editor_input(Editor *editor, const unsigned char in)
 			editor->cur = editor->cur->prev;
 			editor->cur->line.insertionPoint = (editor->cur->line.length <= i) ? editor->cur->line.length : i;
 			screen_retreat_row(&editor->screen);
-			screen_set_col(&editor->screen, editor->cur->line.insertionPoint);
+			for (i = 0, tmp = 0; i < editor->cur->line.insertionPoint; ++i)
+				tmp += (editor->cur->line.buffer[i] == '\t') ? TAB_SIZE : 1;
+			screen_set_col(&editor->screen, tmp);
 		}
 	break;
 
@@ -222,18 +227,24 @@ void editor_input(Editor *editor, const unsigned char in)
 			editor->cur = editor->cur->next;
 			editor->cur->line.insertionPoint = (i >= editor->cur->line.length) ? editor->cur->line.length : i;
 			screen_advance_row(&editor->screen);
-			screen_set_col(&editor->screen, editor->cur->line.insertionPoint);
+			for (i = 0, tmp = 0; i < editor->cur->line.insertionPoint; ++i)
+				tmp += (editor->cur->line.buffer[i] == '\t') ? TAB_SIZE : 1;
+			screen_set_col(&editor->screen, tmp);
 		}
 	break;
 
 	case 186: /* LEFT arrow key */
 		editor->cur->line.insertionPoint -= (editor->cur->line.insertionPoint) ? 1 : 0;
-		screen_set_col(&editor->screen, editor->cur->line.insertionPoint);
+		for (i = 0, tmp = 0; i < editor->cur->line.insertionPoint; ++i)
+			tmp += (editor->cur->line.buffer[i] == '\t') ? TAB_SIZE : 1;
+		screen_set_col(&editor->screen, tmp);
 	break;
 
 	case 185: /* RIGHT arrow key */
 		editor->cur->line.insertionPoint += (editor->cur->line.insertionPoint < editor->cur->line.length) ? 1 : 0;
-		screen_set_col(&editor->screen, editor->cur->line.insertionPoint);
+		for (i = 0, tmp = 0; i < editor->cur->line.insertionPoint; ++i)
+			tmp += (editor->cur->line.buffer[i] == '\t') ? TAB_SIZE : 1;
+		screen_set_col(&editor->screen, tmp);
 	break;
 
 	default:
@@ -361,8 +372,9 @@ void editor_flush(Editor *editor, const char *fname, FILE *sink)
 	while (cur != NULL) {
 		for (i = 0; i < cur->line.length; ++i)
 			fputc(cur->line.buffer[i], sink);
-		fputc('\n', sink);
 		cur = cur->next;
+		if (cur != NULL)
+			fputc('\n', sink);
 	}
 }
 
