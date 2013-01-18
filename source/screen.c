@@ -310,16 +310,6 @@ void screen_flush_out(Screen *screen)
 		putchar('\n');
 		fflush(stdout);
 	}
-	if (0 == (i-1) && 0 == j) {
-		putchar('\033');
-		putchar('[');
-		putchar('7');
-		putchar('m');
-		putchar('\033');
-		putchar('[');
-		putchar('0');
-		putchar('m');
-	}
 }
 
 unsigned char screen_ask(Screen *screen, const char *question)
