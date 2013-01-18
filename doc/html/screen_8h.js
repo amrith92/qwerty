@@ -14,6 +14,8 @@ var screen_8h =
     [ "screen_delete", "screen_8h.html#ad83cfeb6f20e4d16ed7d3f232ba6fcaf", null ],
     [ "screen_flush_out", "screen_8h.html#add7108f128d641f87004c5cbeadbc3f6", null ],
     [ "screen_init", "screen_8h.html#a45a041d05760845729aaf1d94dac8787", null ],
+    [ "screen_insert_tab", "screen_8h.html#a10ebfd3ca5995113fbeb9fe4e53260b3", null ],
+    [ "screen_insert_tab_here", "screen_8h.html#aa10c4aacf2cc663826207b91d0358e03", null ],
     [ "screen_move_col_left", "screen_8h.html#a56c82e6071a8cc4712a29e73f05eb9bc", null ],
     [ "screen_move_col_right", "screen_8h.html#af0c41a85a5e3adf9b39961bbe1c38b0d", null ],
     [ "screen_new", "screen_8h.html#aa3bea9486c6e869cf5b47ac7c2afa695", null ],

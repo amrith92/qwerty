@@ -346,145 +346,161 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00247"></a>00247                 <a class="code" href="screen_8c.html#a75cd1830d12ef63ec39d9d53b448648b">screen_set_col</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, tmp);
 <a name="l00248"></a>00248         <span class="keywordflow">break</span>;
 <a name="l00249"></a>00249 
-<a name="l00250"></a>00250         <span class="keywordflow">default</span>:
-<a name="l00251"></a>00251                 <span class="keywordflow">if</span> (editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a> &lt;= editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>)
-<a name="l00252"></a>00252                         editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>++] = in;
-<a name="l00253"></a>00253                 <span class="keywordflow">else</span> {
-<a name="l00254"></a>00254                         <span class="keywordflow">for</span> (i = editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>; i &gt; editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>; --i) {
-<a name="l00255"></a>00255                                 editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i] = editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i-1];
-<a name="l00256"></a>00256                                 <a class="code" href="screen_8c.html#ae570e92dcaf6729b9c4412d408fe6cfd">screen_putc_here</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i], i);
-<a name="l00257"></a>00257                         }
-<a name="l00258"></a>00258                         editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>++] = in;
-<a name="l00259"></a>00259                 }
-<a name="l00260"></a>00260                 <a class="code" href="screen_8c.html#ae65a306362a584034b28409fe9d97e9e">screen_putc</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, in);
-<a name="l00261"></a>00261                 ++editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>;
-<a name="l00262"></a>00262                 editor-&gt;<a class="code" href="struct__editor.html#ae47e8139297db10cdbc65446cc81fa88">is_dirty</a> = 1;
-<a name="l00263"></a>00263         }
-<a name="l00264"></a>00264         <a class="code" href="screen_8c.html#a3d92d296beea39e0ad1875200d573a0b">screen_add_menu</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
-<a name="l00265"></a>00265         <span class="keywordflow">if</span> (<a class="code" href="editor_8c.html#a49db758854f51d28f3b77fb452587466">DO_AUTO_BACKUP</a>) {
-<a name="l00266"></a>00266                 <a class="code" href="editor_8c.html#a49db758854f51d28f3b77fb452587466">DO_AUTO_BACKUP</a> = 0;
-<a name="l00267"></a>00267                 <a class="code" href="editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37">editor_flush</a>(editor, editor-&gt;<a class="code" href="struct__editor.html#ae106f28d71011718e47133aa6f53f690">tempname</a>, editor-&gt;<a class="code" href="struct__editor.html#aa10c73b01cb1deab1e2150b1047ac690">backup</a>);
-<a name="l00268"></a>00268         }
-<a name="l00269"></a>00269 }
-<a name="l00270"></a>00270 
-<a name="l00271"></a><a class="code" href="editor_8h.html#abf703e317698d313edd75d1e201cb0ee">00271</a> uint8_t <a class="code" href="editor_8c.html#abf703e317698d313edd75d1e201cb0ee">editor_safe_exit</a>(<a class="code" href="struct__editor.html">Editor</a> *editor)
-<a name="l00272"></a>00272 {
-<a name="l00273"></a>00273         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> in;
-<a name="l00274"></a>00274         <span class="keywordflow">if</span> (editor == NULL)
-<a name="l00275"></a>00275                 <span class="keywordflow">return</span> 2;
-<a name="l00276"></a>00276         <span class="keywordflow">if</span> (editor-&gt;<a class="code" href="struct__editor.html#ae47e8139297db10cdbc65446cc81fa88">is_dirty</a>) {
-<a name="l00277"></a>00277                 <span class="comment">// Ask user if he/she really wants to quit</span>
-<a name="l00278"></a>00278                 <a class="code" href="screen_8c.html#a0177ce87058c000cebf960249af4f93a">screen_ask</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, <span class="stringliteral">&quot;Really quit?&quot;</span>);
-<a name="l00279"></a>00279                 <a class="code" href="screen_8c.html#add7108f128d641f87004c5cbeadbc3f6">screen_flush_out</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
-<a name="l00280"></a>00280                 <span class="keywordflow">do</span> {
-<a name="l00281"></a>00281                         in = <a class="code" href="editor_8c.html#a534da1593df1c9197ac7ee78fc82f61a">editor_getch</a>();
-<a name="l00282"></a>00282                         <span class="keywordflow">switch</span> (in) {
-<a name="l00283"></a>00283                         <span class="keywordflow">case</span> <span class="charliteral">&#39;y&#39;</span>:
-<a name="l00284"></a>00284                         <span class="keywordflow">case</span> <span class="charliteral">&#39;Y&#39;</span>:
-<a name="l00285"></a>00285                                 <a class="code" href="editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37">editor_flush</a>(editor, editor-&gt;<a class="code" href="struct__editor.html#a7efa5e9c7494c7d4586359300221aa5d">filename</a>, editor-&gt;<a class="code" href="struct__editor.html#a64f36225f1f832409928275a0e7f947f">target</a>);
-<a name="l00286"></a>00286                                 <span class="keywordflow">return</span> 1;
-<a name="l00287"></a>00287 
-<a name="l00288"></a>00288                         <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>:
-<a name="l00289"></a>00289                         <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>:
-<a name="l00290"></a>00290                         <span class="keywordflow">case</span> <span class="charliteral">&#39;c&#39;</span>:
-<a name="l00291"></a>00291                         <span class="keywordflow">case</span> <span class="charliteral">&#39;C&#39;</span>:
-<a name="l00292"></a>00292                                 <span class="keywordflow">return</span> 0;
-<a name="l00293"></a>00293                         }
-<a name="l00294"></a>00294                 } <span class="keywordflow">while</span> (in != 0);
-<a name="l00295"></a>00295         }
-<a name="l00296"></a>00296 
-<a name="l00297"></a>00297         <span class="keywordflow">return</span> 1;
-<a name="l00298"></a>00298 }
-<a name="l00299"></a>00299 
-<a name="l00300"></a><a class="code" href="editor_8h.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9">00300</a> <span class="keywordtype">void</span> <a class="code" href="editor_8c.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9">editor_handle_sigint</a>(<span class="keywordtype">int</span> signum)
-<a name="l00301"></a>00301 {
-<a name="l00302"></a>00302     signal(signum, SIG_IGN);
-<a name="l00303"></a>00303     <span class="keywordflow">if</span>(<a class="code" href="editor_8c.html#abf703e317698d313edd75d1e201cb0ee">editor_safe_exit</a>(gEditor)) {
-<a name="l00304"></a>00304                 <a class="code" href="editor_8c.html#ac36d9f1889ae8fb4e49485dfb4b9c2fb">editor_release</a>(gEditor);
-<a name="l00305"></a>00305                 gEditor = NULL;
-<a name="l00306"></a>00306                 system(<span class="stringliteral">&quot;stty sane&quot;</span>);
-<a name="l00307"></a>00307             exit(0);
-<a name="l00308"></a>00308         } <span class="keywordflow">else</span> {
-<a name="l00309"></a>00309                 <a class="code" href="screen_8c.html#a3d92d296beea39e0ad1875200d573a0b">screen_add_menu</a>(&amp;gEditor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
-<a name="l00310"></a>00310                 <a class="code" href="screen_8c.html#add7108f128d641f87004c5cbeadbc3f6">screen_flush_out</a>(&amp;gEditor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
-<a name="l00311"></a>00311                 signal(signum, <a class="code" href="editor_8c.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9">editor_handle_sigint</a>);
-<a name="l00312"></a>00312         }
-<a name="l00313"></a>00313 }
-<a name="l00314"></a>00314 
-<a name="l00315"></a><a class="code" href="editor_8h.html#a534da1593df1c9197ac7ee78fc82f61a">00315</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="editor_8c.html#a534da1593df1c9197ac7ee78fc82f61a">editor_getch</a>() {
-<a name="l00316"></a>00316         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buf = 0, arrow = 0;
-<a name="l00317"></a>00317         <span class="keyword">struct </span>termios oldstuff;
-<a name="l00318"></a>00318         <span class="keyword">struct </span>termios newstuff;
-<a name="l00319"></a>00319 
-<a name="l00320"></a>00320         tcgetattr(STDIN_FILENO, &amp;oldstuff);
-<a name="l00321"></a>00321         newstuff = oldstuff;                  <span class="comment">/* save old attributes               */</span>
-<a name="l00322"></a>00322         newstuff.c_lflag &amp;= ~(ICANON | ECHO); <span class="comment">/* reset &quot;canonical&quot; and &quot;echo&quot; flags*/</span>
-<a name="l00323"></a>00323         newstuff.c_cc[VMIN] = 1;
-<a name="l00324"></a>00324         newstuff.c_cc[VTIME] = 0;
-<a name="l00325"></a>00325         tcsetattr(STDIN_FILENO, TCSANOW, &amp;newstuff); <span class="comment">/* set new attributes         */</span>
-<a name="l00326"></a>00326         buf = getchar();
-<a name="l00327"></a>00327 
-<a name="l00328"></a>00328         <span class="comment">//printf(&quot;CHAR=[%d] &quot;, buf);</span>
-<a name="l00329"></a>00329 
-<a name="l00330"></a>00330         <span class="keywordflow">if</span> (buf == 27) {
-<a name="l00331"></a>00331                 arrow = buf &amp; 0xFF;
-<a name="l00332"></a>00332                 arrow += getchar() &amp; 0xFF;
-<a name="l00333"></a>00333                 <span class="comment">//printf(&quot;ARROW.1[%d]&quot;, arrow);</span>
-<a name="l00334"></a>00334                 arrow += getchar() &amp; 0xFF;
-<a name="l00335"></a>00335                 <span class="comment">//printf(&quot;ARROW.2[%d]&quot;, arrow);</span>
-<a name="l00336"></a>00336                 <span class="keywordflow">switch</span> (arrow) {
-<a name="l00337"></a>00337                 <span class="keywordflow">case</span> 169:       <span class="comment">/* DEL key */</span>
-<a name="l00338"></a>00338                 <span class="keywordflow">case</span> 176:       <span class="comment">/* END key */</span>
-<a name="l00339"></a>00339                 <span class="keywordflow">case</span> 178:       <span class="comment">/* HOME key */</span>
-<a name="l00340"></a>00340                 <span class="keywordflow">case</span> 183:       <span class="comment">/* UP arrow key */</span>
-<a name="l00341"></a>00341                 <span class="keywordflow">case</span> 184:       <span class="comment">/* DOWN arrow key */</span>
-<a name="l00342"></a>00342                 <span class="keywordflow">case</span> 185:       <span class="comment">/* RIGHT arrow key */</span>
-<a name="l00343"></a>00343                 <span class="keywordflow">case</span> 186:       <span class="comment">/* LEFT arrow key */</span>
-<a name="l00344"></a>00344                         <span class="keywordflow">break</span>;
-<a name="l00345"></a>00345                 <span class="keywordflow">default</span>: arrow = 0;
-<a name="l00346"></a>00346                 }
-<a name="l00347"></a>00347                 <span class="keywordflow">if</span> (0 != arrow)
-<a name="l00348"></a>00348                         buf = arrow;
-<a name="l00349"></a>00349         }
-<a name="l00350"></a>00350 
-<a name="l00351"></a>00351         tcsetattr(STDIN_FILENO, TCSANOW, &amp;oldstuff); <span class="comment">/* restore old attributes     */</span>
-<a name="l00352"></a>00352 
-<a name="l00353"></a>00353         <span class="keywordflow">if</span> (buf == 0x04)
-<a name="l00354"></a>00354                 buf = EOF;
-<a name="l00355"></a>00355 
-<a name="l00356"></a>00356         <span class="keywordflow">return</span> (buf);
-<a name="l00357"></a>00357 }
-<a name="l00358"></a>00358 
-<a name="l00359"></a><a class="code" href="editor_8h.html#ab163b6984b5acf1083dd1caa8daefe37">00359</a> <span class="keywordtype">void</span> <a class="code" href="editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37">editor_flush</a>(<a class="code" href="struct__editor.html">Editor</a> *editor, <span class="keyword">const</span> <span class="keywordtype">char</span> *fname, FILE *sink)
-<a name="l00360"></a>00360 {
-<a name="l00361"></a>00361         <a class="code" href="struct__tty__line__buffer__list.html">TtyLineBufferList</a> *cur = NULL;
-<a name="l00362"></a>00362         <span class="keywordtype">size_t</span> i = 0;
-<a name="l00363"></a>00363 
-<a name="l00364"></a>00364         <span class="keywordflow">if</span> (editor == NULL)
-<a name="l00365"></a>00365                 <span class="keywordflow">return</span>;
-<a name="l00366"></a>00366         <span class="keywordflow">if</span> (sink == NULL)
-<a name="l00367"></a>00367                 <span class="keywordflow">return</span>;
+<a name="l00250"></a>00250         <span class="keywordflow">case</span> <span class="charliteral">&#39;\t&#39;</span>:
+<a name="l00251"></a>00251                 <span class="keywordflow">if</span> (editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a> &lt;= editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>) {
+<a name="l00252"></a>00252                         <a class="code" href="screen_8c.html#a10ebfd3ca5995113fbeb9fe4e53260b3">screen_insert_tab</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
+<a name="l00253"></a>00253                         editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>++] = in;
+<a name="l00254"></a>00254                 } <span class="keywordflow">else</span> {
+<a name="l00255"></a>00255                         <a class="code" href="screen_8c.html#aa10c4aacf2cc663826207b91d0358e03">screen_insert_tab_here</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>);
+<a name="l00256"></a>00256                         <span class="keywordflow">for</span> (i = editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>; i &gt; editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>; --i) {
+<a name="l00257"></a>00257                                 editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i] = editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i-1];
+<a name="l00258"></a>00258                                 <a class="code" href="screen_8c.html#ae570e92dcaf6729b9c4412d408fe6cfd">screen_putc_here</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i], i + <a class="code" href="textproperties_8h.html#a9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>);
+<a name="l00259"></a>00259                         }
+<a name="l00260"></a>00260                         ++editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>;
+<a name="l00261"></a>00261                 }
+<a name="l00262"></a>00262                 ++editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>;
+<a name="l00263"></a>00263                 editor-&gt;<a class="code" href="struct__editor.html#ae47e8139297db10cdbc65446cc81fa88">is_dirty</a> = 1;
+<a name="l00264"></a>00264         <span class="keywordflow">break</span>;
+<a name="l00265"></a>00265 
+<a name="l00266"></a>00266         <span class="keywordflow">default</span>:
+<a name="l00267"></a>00267                 <span class="keywordflow">if</span> (editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a> &lt;= editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>)
+<a name="l00268"></a>00268                         editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>++] = in;
+<a name="l00269"></a>00269                 <span class="keywordflow">else</span> {
+<a name="l00270"></a>00270                         <span class="keywordflow">for</span> (i = editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>; i &gt; editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>; --i) {
+<a name="l00271"></a>00271                                 editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i] = editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i-1];
+<a name="l00272"></a>00272                                 <a class="code" href="screen_8c.html#ae570e92dcaf6729b9c4412d408fe6cfd">screen_putc_here</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i], i);
+<a name="l00273"></a>00273                         }
+<a name="l00274"></a>00274                         editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#adb8b1eaa0695e80d5857881216ebefaf">insertionPoint</a>++] = in;
+<a name="l00275"></a>00275                 }
+<a name="l00276"></a>00276                 <a class="code" href="screen_8c.html#ae65a306362a584034b28409fe9d97e9e">screen_putc</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, in);
+<a name="l00277"></a>00277                 ++editor-&gt;<a class="code" href="struct__editor.html#a72f1d42d9b6c743075fd7f91e19fd474">cur</a>-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>;
+<a name="l00278"></a>00278                 editor-&gt;<a class="code" href="struct__editor.html#ae47e8139297db10cdbc65446cc81fa88">is_dirty</a> = 1;
+<a name="l00279"></a>00279         }
+<a name="l00280"></a>00280         <a class="code" href="screen_8c.html#a3d92d296beea39e0ad1875200d573a0b">screen_add_menu</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
+<a name="l00281"></a>00281         <span class="keywordflow">if</span> (<a class="code" href="editor_8c.html#a49db758854f51d28f3b77fb452587466">DO_AUTO_BACKUP</a>) {
+<a name="l00282"></a>00282                 <a class="code" href="editor_8c.html#a49db758854f51d28f3b77fb452587466">DO_AUTO_BACKUP</a> = 0;
+<a name="l00283"></a>00283                 <a class="code" href="editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37">editor_flush</a>(editor, editor-&gt;<a class="code" href="struct__editor.html#ae106f28d71011718e47133aa6f53f690">tempname</a>, editor-&gt;<a class="code" href="struct__editor.html#aa10c73b01cb1deab1e2150b1047ac690">backup</a>);
+<a name="l00284"></a>00284         }
+<a name="l00285"></a>00285 }
+<a name="l00286"></a>00286 
+<a name="l00287"></a><a class="code" href="editor_8h.html#abf703e317698d313edd75d1e201cb0ee">00287</a> uint8_t <a class="code" href="editor_8c.html#abf703e317698d313edd75d1e201cb0ee">editor_safe_exit</a>(<a class="code" href="struct__editor.html">Editor</a> *editor)
+<a name="l00288"></a>00288 {
+<a name="l00289"></a>00289         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> in;
+<a name="l00290"></a>00290         <span class="keywordflow">if</span> (editor == NULL)
+<a name="l00291"></a>00291                 <span class="keywordflow">return</span> 2;
+<a name="l00292"></a>00292         <span class="keywordflow">if</span> (editor-&gt;<a class="code" href="struct__editor.html#ae47e8139297db10cdbc65446cc81fa88">is_dirty</a>) {
+<a name="l00293"></a>00293                 <span class="comment">// Ask user if he/she really wants to quit</span>
+<a name="l00294"></a>00294                 <a class="code" href="screen_8c.html#a0177ce87058c000cebf960249af4f93a">screen_ask</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>, <span class="stringliteral">&quot;Really quit?&quot;</span>);
+<a name="l00295"></a>00295                 <a class="code" href="screen_8c.html#add7108f128d641f87004c5cbeadbc3f6">screen_flush_out</a>(&amp;editor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
+<a name="l00296"></a>00296                 <span class="keywordflow">do</span> {
+<a name="l00297"></a>00297                         in = <a class="code" href="editor_8c.html#a534da1593df1c9197ac7ee78fc82f61a">editor_getch</a>();
+<a name="l00298"></a>00298                         <span class="keywordflow">switch</span> (in) {
+<a name="l00299"></a>00299                         <span class="keywordflow">case</span> <span class="charliteral">&#39;y&#39;</span>:
+<a name="l00300"></a>00300                         <span class="keywordflow">case</span> <span class="charliteral">&#39;Y&#39;</span>:
+<a name="l00301"></a>00301                                 <a class="code" href="editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37">editor_flush</a>(editor, editor-&gt;<a class="code" href="struct__editor.html#a7efa5e9c7494c7d4586359300221aa5d">filename</a>, editor-&gt;<a class="code" href="struct__editor.html#a64f36225f1f832409928275a0e7f947f">target</a>);
+<a name="l00302"></a>00302                                 <span class="keywordflow">return</span> 1;
+<a name="l00303"></a>00303 
+<a name="l00304"></a>00304                         <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>:
+<a name="l00305"></a>00305                         <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>:
+<a name="l00306"></a>00306                         <span class="keywordflow">case</span> <span class="charliteral">&#39;c&#39;</span>:
+<a name="l00307"></a>00307                         <span class="keywordflow">case</span> <span class="charliteral">&#39;C&#39;</span>:
+<a name="l00308"></a>00308                                 <span class="keywordflow">return</span> 0;
+<a name="l00309"></a>00309                         }
+<a name="l00310"></a>00310                 } <span class="keywordflow">while</span> (in != 0);
+<a name="l00311"></a>00311         }
+<a name="l00312"></a>00312 
+<a name="l00313"></a>00313         <span class="keywordflow">return</span> 1;
+<a name="l00314"></a>00314 }
+<a name="l00315"></a>00315 
+<a name="l00316"></a><a class="code" href="editor_8h.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9">00316</a> <span class="keywordtype">void</span> <a class="code" href="editor_8c.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9">editor_handle_sigint</a>(<span class="keywordtype">int</span> signum)
+<a name="l00317"></a>00317 {
+<a name="l00318"></a>00318     signal(signum, SIG_IGN);
+<a name="l00319"></a>00319     <span class="keywordflow">if</span>(<a class="code" href="editor_8c.html#abf703e317698d313edd75d1e201cb0ee">editor_safe_exit</a>(gEditor)) {
+<a name="l00320"></a>00320                 <a class="code" href="editor_8c.html#ac36d9f1889ae8fb4e49485dfb4b9c2fb">editor_release</a>(gEditor);
+<a name="l00321"></a>00321                 gEditor = NULL;
+<a name="l00322"></a>00322                 system(<span class="stringliteral">&quot;stty sane&quot;</span>);
+<a name="l00323"></a>00323             exit(0);
+<a name="l00324"></a>00324         } <span class="keywordflow">else</span> {
+<a name="l00325"></a>00325                 <a class="code" href="screen_8c.html#a3d92d296beea39e0ad1875200d573a0b">screen_add_menu</a>(&amp;gEditor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
+<a name="l00326"></a>00326                 <a class="code" href="screen_8c.html#add7108f128d641f87004c5cbeadbc3f6">screen_flush_out</a>(&amp;gEditor-&gt;<a class="code" href="struct__editor.html#a25cab1c2dd63e90138b14fec27cecc4b">screen</a>);
+<a name="l00327"></a>00327                 signal(signum, <a class="code" href="editor_8c.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9">editor_handle_sigint</a>);
+<a name="l00328"></a>00328         }
+<a name="l00329"></a>00329 }
+<a name="l00330"></a>00330 
+<a name="l00331"></a><a class="code" href="editor_8h.html#a534da1593df1c9197ac7ee78fc82f61a">00331</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="editor_8c.html#a534da1593df1c9197ac7ee78fc82f61a">editor_getch</a>() {
+<a name="l00332"></a>00332         <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> buf = 0, arrow = 0;
+<a name="l00333"></a>00333         <span class="keyword">struct </span>termios oldstuff;
+<a name="l00334"></a>00334         <span class="keyword">struct </span>termios newstuff;
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336         tcgetattr(STDIN_FILENO, &amp;oldstuff);
+<a name="l00337"></a>00337         newstuff = oldstuff;                  <span class="comment">/* save old attributes               */</span>
+<a name="l00338"></a>00338         newstuff.c_lflag &amp;= ~(ICANON | ECHO); <span class="comment">/* reset &quot;canonical&quot; and &quot;echo&quot; flags*/</span>
+<a name="l00339"></a>00339         newstuff.c_cc[VMIN] = 1;
+<a name="l00340"></a>00340         newstuff.c_cc[VTIME] = 0;
+<a name="l00341"></a>00341         tcsetattr(STDIN_FILENO, TCSANOW, &amp;newstuff); <span class="comment">/* set new attributes         */</span>
+<a name="l00342"></a>00342         buf = getchar();
+<a name="l00343"></a>00343 
+<a name="l00344"></a>00344         <span class="comment">//printf(&quot;CHAR=[%d] &quot;, buf);</span>
+<a name="l00345"></a>00345 
+<a name="l00346"></a>00346         <span class="keywordflow">if</span> (buf == 27) {
+<a name="l00347"></a>00347                 arrow = buf &amp; 0xFF;
+<a name="l00348"></a>00348                 arrow += getchar() &amp; 0xFF;
+<a name="l00349"></a>00349                 <span class="comment">//printf(&quot;ARROW.1[%d]&quot;, arrow);</span>
+<a name="l00350"></a>00350                 arrow += getchar() &amp; 0xFF;
+<a name="l00351"></a>00351                 <span class="comment">//printf(&quot;ARROW.2[%d]&quot;, arrow);</span>
+<a name="l00352"></a>00352                 <span class="keywordflow">switch</span> (arrow) {
+<a name="l00353"></a>00353                 <span class="keywordflow">case</span> 169:       <span class="comment">/* DEL key */</span>
+<a name="l00354"></a>00354                 <span class="keywordflow">case</span> 176:       <span class="comment">/* END key */</span>
+<a name="l00355"></a>00355                 <span class="keywordflow">case</span> 178:       <span class="comment">/* HOME key */</span>
+<a name="l00356"></a>00356                 <span class="keywordflow">case</span> 183:       <span class="comment">/* UP arrow key */</span>
+<a name="l00357"></a>00357                 <span class="keywordflow">case</span> 184:       <span class="comment">/* DOWN arrow key */</span>
+<a name="l00358"></a>00358                 <span class="keywordflow">case</span> 185:       <span class="comment">/* RIGHT arrow key */</span>
+<a name="l00359"></a>00359                 <span class="keywordflow">case</span> 186:       <span class="comment">/* LEFT arrow key */</span>
+<a name="l00360"></a>00360                         <span class="keywordflow">break</span>;
+<a name="l00361"></a>00361                 <span class="keywordflow">default</span>: arrow = 0;
+<a name="l00362"></a>00362                 }
+<a name="l00363"></a>00363                 <span class="keywordflow">if</span> (0 != arrow)
+<a name="l00364"></a>00364                         buf = arrow;
+<a name="l00365"></a>00365         }
+<a name="l00366"></a>00366 
+<a name="l00367"></a>00367         tcsetattr(STDIN_FILENO, TCSANOW, &amp;oldstuff); <span class="comment">/* restore old attributes     */</span>
 <a name="l00368"></a>00368 
-<a name="l00369"></a>00369         freopen(fname, <span class="stringliteral">&quot;w&quot;</span>, sink);
-<a name="l00370"></a>00370 
-<a name="l00371"></a>00371         cur = editor-&gt;<a class="code" href="struct__editor.html#a6ad500f86cce593903f053b1b16fd1d8">head</a>;
-<a name="l00372"></a>00372         <span class="keywordflow">while</span> (cur != NULL) {
-<a name="l00373"></a>00373                 <span class="keywordflow">for</span> (i = 0; i &lt; cur-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>; ++i)
-<a name="l00374"></a>00374                         fputc(cur-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i], sink);
-<a name="l00375"></a>00375                 cur = cur-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a3c88020818ad7d01126ac55ed174b4a1">next</a>;
-<a name="l00376"></a>00376                 <span class="keywordflow">if</span> (cur != NULL)
-<a name="l00377"></a>00377                         fputc(<span class="charliteral">&#39;\n&#39;</span>, sink);
-<a name="l00378"></a>00378         }
-<a name="l00379"></a>00379 }
-<a name="l00380"></a>00380 
-<a name="l00381"></a><a class="code" href="editor_8h.html#a5dd524abd59a0263102ee1f58211398b">00381</a> <span class="keywordtype">void</span> <a class="code" href="editor_8c.html#a5dd524abd59a0263102ee1f58211398b">editor_perform_backup</a>(<span class="keywordtype">int</span> signum)
-<a name="l00382"></a>00382 {
-<a name="l00383"></a>00383         signal(SIGALRM, SIG_IGN);
-<a name="l00384"></a>00384         <span class="comment">//editor_flush(gEditor, gEditor-&gt;tempname, gEditor-&gt;backup);</span>
-<a name="l00385"></a>00385         <a class="code" href="editor_8c.html#a49db758854f51d28f3b77fb452587466">DO_AUTO_BACKUP</a> = 1;
-<a name="l00386"></a>00386         signal(SIGALRM, <a class="code" href="editor_8c.html#a5dd524abd59a0263102ee1f58211398b">editor_perform_backup</a>);
-<a name="l00387"></a>00387         alarm(<a class="code" href="editor_8h.html#a9d5ad1b93473d1b3261c32b6d7a14110">BACKUP_TIMEOUT</a>);
-<a name="l00388"></a>00388 }
+<a name="l00369"></a>00369         <span class="keywordflow">if</span> (buf == 0x04)
+<a name="l00370"></a>00370                 buf = EOF;
+<a name="l00371"></a>00371 
+<a name="l00372"></a>00372         <span class="keywordflow">return</span> (buf);
+<a name="l00373"></a>00373 }
+<a name="l00374"></a>00374 
+<a name="l00375"></a><a class="code" href="editor_8h.html#ab163b6984b5acf1083dd1caa8daefe37">00375</a> <span class="keywordtype">void</span> <a class="code" href="editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37">editor_flush</a>(<a class="code" href="struct__editor.html">Editor</a> *editor, <span class="keyword">const</span> <span class="keywordtype">char</span> *fname, FILE *sink)
+<a name="l00376"></a>00376 {
+<a name="l00377"></a>00377         <a class="code" href="struct__tty__line__buffer__list.html">TtyLineBufferList</a> *cur = NULL;
+<a name="l00378"></a>00378         <span class="keywordtype">size_t</span> i = 0;
+<a name="l00379"></a>00379 
+<a name="l00380"></a>00380         <span class="keywordflow">if</span> (editor == NULL)
+<a name="l00381"></a>00381                 <span class="keywordflow">return</span>;
+<a name="l00382"></a>00382         <span class="keywordflow">if</span> (sink == NULL)
+<a name="l00383"></a>00383                 <span class="keywordflow">return</span>;
+<a name="l00384"></a>00384 
+<a name="l00385"></a>00385         freopen(fname, <span class="stringliteral">&quot;w&quot;</span>, sink);
+<a name="l00386"></a>00386 
+<a name="l00387"></a>00387         cur = editor-&gt;<a class="code" href="struct__editor.html#a6ad500f86cce593903f053b1b16fd1d8">head</a>;
+<a name="l00388"></a>00388         <span class="keywordflow">while</span> (cur != NULL) {
+<a name="l00389"></a>00389                 <span class="keywordflow">for</span> (i = 0; i &lt; cur-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a190b76b1f3d5bd26920300e5f073739b">length</a>; ++i)
+<a name="l00390"></a>00390                         fputc(cur-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a684aed4dc29dc25632be709fb37f0c70">line</a>.<a class="code" href="struct__tty__line__buffer.html#a70e7ad2e1a45c8db5fba9ad4778bd400">buffer</a>[i], sink);
+<a name="l00391"></a>00391                 cur = cur-&gt;<a class="code" href="struct__tty__line__buffer__list.html#a3c88020818ad7d01126ac55ed174b4a1">next</a>;
+<a name="l00392"></a>00392                 <span class="keywordflow">if</span> (cur != NULL)
+<a name="l00393"></a>00393                         fputc(<span class="charliteral">&#39;\n&#39;</span>, sink);
+<a name="l00394"></a>00394         }
+<a name="l00395"></a>00395 }
+<a name="l00396"></a>00396 
+<a name="l00397"></a><a class="code" href="editor_8h.html#a5dd524abd59a0263102ee1f58211398b">00397</a> <span class="keywordtype">void</span> <a class="code" href="editor_8c.html#a5dd524abd59a0263102ee1f58211398b">editor_perform_backup</a>(<span class="keywordtype">int</span> signum)
+<a name="l00398"></a>00398 {
+<a name="l00399"></a>00399         signal(SIGALRM, SIG_IGN);
+<a name="l00400"></a>00400         <span class="comment">//editor_flush(gEditor, gEditor-&gt;tempname, gEditor-&gt;backup);</span>
+<a name="l00401"></a>00401         <a class="code" href="editor_8c.html#a49db758854f51d28f3b77fb452587466">DO_AUTO_BACKUP</a> = 1;
+<a name="l00402"></a>00402         signal(SIGALRM, <a class="code" href="editor_8c.html#a5dd524abd59a0263102ee1f58211398b">editor_perform_backup</a>);
+<a name="l00403"></a>00403         alarm(<a class="code" href="editor_8h.html#a9d5ad1b93473d1b3261c32b6d7a14110">BACKUP_TIMEOUT</a>);
+<a name="l00404"></a>00404 }
 </pre></div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -505,7 +521,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="editor_8c.html">editor.c</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 18 2013 09:25:55 for qwerty by
+    <li class="footer">Generated on Fri Jan 18 2013 10:39:10 for qwerty by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

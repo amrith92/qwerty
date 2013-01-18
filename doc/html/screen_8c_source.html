@@ -235,9 +235,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00136"></a>00136 <span class="comment">                */</span>
 <a name="l00137"></a>00137         }
 <a name="l00138"></a>00138         <span class="keywordflow">if</span> (<span class="charliteral">&#39;\t&#39;</span> == c) {
-<a name="l00139"></a>00139                 <span class="keywordflow">for</span> (i = screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>; i &lt; <a class="code" href="textproperties_8h.html#a9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>; ++i)
-<a name="l00140"></a>00140                         screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][i] = <span class="charliteral">&#39; &#39;</span>;
-<a name="l00141"></a>00141                 screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> += <a class="code" href="textproperties_8h.html#a9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>;
+<a name="l00139"></a>00139                 <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="textproperties_8h.html#a9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>; ++i)
+<a name="l00140"></a>00140                         screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>++] = <span class="charliteral">&#39; &#39;</span>;
+<a name="l00141"></a>00141                 <span class="comment">//screen-&gt;pos.col += TAB_SIZE;</span>
 <a name="l00142"></a>00142         } <span class="keywordflow">else</span> {
 <a name="l00143"></a>00143                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>++] = c;
 <a name="l00144"></a>00144         }
@@ -308,122 +308,146 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00209"></a>00209         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
 <a name="l00210"></a>00210 }
 <a name="l00211"></a>00211 
-<a name="l00212"></a><a class="code" href="screen_8h.html#a6c6f74af174eb2cc68321a3ee5610e32">00212</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#a6c6f74af174eb2cc68321a3ee5610e32">screen_set_row_pos</a>(<a class="code" href="struct__screen.html">Screen</a> *screen, <span class="keyword">const</span> uint16_t pos)
+<a name="l00212"></a><a class="code" href="screen_8h.html#a10ebfd3ca5995113fbeb9fe4e53260b3">00212</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#a10ebfd3ca5995113fbeb9fe4e53260b3">screen_insert_tab</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
 <a name="l00213"></a>00213 {
-<a name="l00214"></a>00214         <span class="keywordflow">if</span> (pos &gt; screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a>)
-<a name="l00215"></a>00215                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa80a4fe9ecdd3a8b79dc2db41517404f6">SCR_SCROLL_BOTTOM</a>;
-<a name="l00216"></a>00216         screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a> = pos;
-<a name="l00217"></a>00217         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
-<a name="l00218"></a>00218 }
-<a name="l00219"></a>00219 
-<a name="l00220"></a><a class="code" href="screen_8h.html#af0c41a85a5e3adf9b39961bbe1c38b0d">00220</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#af0c41a85a5e3adf9b39961bbe1c38b0d">screen_move_col_right</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
-<a name="l00221"></a>00221 {
-<a name="l00222"></a>00222         <span class="keywordflow">if</span> (screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> &gt;= screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>)
-<a name="l00223"></a>00223                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa02c65edc3529942176ba869ba2bc3525">SCR_SCROLL_RIGHT</a>;
-<a name="l00224"></a>00224         ++screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>;
-<a name="l00225"></a>00225         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
-<a name="l00226"></a>00226 }
-<a name="l00227"></a>00227 
-<a name="l00228"></a><a class="code" href="screen_8h.html#a56c82e6071a8cc4712a29e73f05eb9bc">00228</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#a56c82e6071a8cc4712a29e73f05eb9bc">screen_move_col_left</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
-<a name="l00229"></a>00229 {
-<a name="l00230"></a>00230         <span class="keywordflow">if</span> (screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> &lt;= 0)
-<a name="l00231"></a>00231                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa2a079fe895f617011716528de8210be0">SCR_SCROLL_LEFT</a>;
-<a name="l00232"></a>00232         --screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>;
+<a name="l00214"></a>00214         <span class="keywordtype">size_t</span> i;
+<a name="l00215"></a>00215         <span class="keywordflow">if</span> ((screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> + <a class="code" href="textproperties_8h.html#a9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>) &gt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>) {
+<a name="l00216"></a>00216                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa02c65edc3529942176ba869ba2bc3525">SCR_SCROLL_RIGHT</a>;
+<a name="l00217"></a>00217         }
+<a name="l00218"></a>00218         <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="textproperties_8h.html#a9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>; ++i)
+<a name="l00219"></a>00219                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>++] = <span class="charliteral">&#39; &#39;</span>;
+<a name="l00220"></a>00220         <span class="comment">//printf(&quot;\nSCREEN POS: %d\n&quot;, screen-&gt;pos.col);</span>
+<a name="l00221"></a>00221         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
+<a name="l00222"></a>00222 }
+<a name="l00223"></a>00223 
+<a name="l00224"></a><a class="code" href="screen_8h.html#aa10c4aacf2cc663826207b91d0358e03">00224</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#aa10c4aacf2cc663826207b91d0358e03">screen_insert_tab_here</a>(<a class="code" href="struct__screen.html">Screen</a> *screen, <span class="keyword">const</span> uint16_t col)
+<a name="l00225"></a>00225 {
+<a name="l00226"></a>00226         <span class="keywordtype">size_t</span> i;
+<a name="l00227"></a>00227         <span class="keywordflow">if</span> (col &gt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>) {
+<a name="l00228"></a>00228                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa02c65edc3529942176ba869ba2bc3525">SCR_SCROLL_RIGHT</a>;
+<a name="l00229"></a>00229         }
+<a name="l00230"></a>00230         screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> = col;
+<a name="l00231"></a>00231         <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="textproperties_8h.html#a9ad1b4a1e4f7381611cfd2ae6620a727">TAB_SIZE</a>; ++i)
+<a name="l00232"></a>00232                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>++] = <span class="charliteral">&#39; &#39;</span>;
 <a name="l00233"></a>00233         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
 <a name="l00234"></a>00234 }
 <a name="l00235"></a>00235 
-<a name="l00236"></a><a class="code" href="screen_8h.html#ad83cfeb6f20e4d16ed7d3f232ba6fcaf">00236</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#ad83cfeb6f20e4d16ed7d3f232ba6fcaf">screen_delete</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00236"></a><a class="code" href="screen_8h.html#a6c6f74af174eb2cc68321a3ee5610e32">00236</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#a6c6f74af174eb2cc68321a3ee5610e32">screen_set_row_pos</a>(<a class="code" href="struct__screen.html">Screen</a> *screen, <span class="keyword">const</span> uint16_t pos)
 <a name="l00237"></a>00237 {
-<a name="l00238"></a>00238         <span class="keywordtype">size_t</span> i;
-<a name="l00239"></a>00239         <span class="keywordflow">for</span> (i = screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>; i &lt; screen-&gt;max_col - 1 &amp;&amp; screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][i] != <span class="charliteral">&#39;\0&#39;</span>; ++i)
-<a name="l00240"></a>00240                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][i] = screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][i + 1];
-<a name="l00241"></a>00241 }
-<a name="l00242"></a>00242 
-<a name="l00243"></a><a class="code" href="screen_8h.html#af5554e532e6ab6011f2fcd0425cb1f4d">00243</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#af5554e532e6ab6011f2fcd0425cb1f4d">screen_clear_line</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
-<a name="l00244"></a>00244 {
-<a name="l00245"></a>00245         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
-<a name="l00246"></a>00246 }
-<a name="l00247"></a>00247 
-<a name="l00248"></a><a class="code" href="screen_8h.html#ab696d252dbd7f72b03d80edf512383fa">00248</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#ab696d252dbd7f72b03d80edf512383fa">screen_update_cursor</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
-<a name="l00249"></a>00249 {
-<a name="l00250"></a>00250 
-<a name="l00251"></a>00251 }
-<a name="l00252"></a>00252 
-<a name="l00253"></a><a class="code" href="screen_8h.html#add7108f128d641f87004c5cbeadbc3f6">00253</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#add7108f128d641f87004c5cbeadbc3f6">screen_flush_out</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
-<a name="l00254"></a>00254 {
-<a name="l00255"></a>00255         <span class="keywordtype">size_t</span> i, j;
-<a name="l00256"></a>00256         <span class="keywordflow">if</span> (screen == NULL)
-<a name="l00257"></a>00257                 <span class="keywordflow">return</span>;
-<a name="l00258"></a>00258 
-<a name="l00259"></a>00259         <span class="keywordflow">for</span> (i = 0; i &lt; screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a>; ++i) {
-<a name="l00260"></a>00260                 <span class="keywordflow">for</span> (j = 0; j &lt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a> &amp;&amp; screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[i][j] != <span class="charliteral">&#39;\0&#39;</span>; ++j) {
-<a name="l00261"></a>00261                         <span class="keywordflow">if</span> (!i &amp;&amp; j == 5) {
-<a name="l00262"></a>00262                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
-<a name="l00263"></a>00263                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
-<a name="l00264"></a>00264                                 putchar(<span class="charliteral">&#39;1&#39;</span>);
-<a name="l00265"></a>00265                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
-<a name="l00266"></a>00266                         }
-<a name="l00267"></a>00267                         <span class="keywordflow">if</span> (!i &amp;&amp; j == 16) {
-<a name="l00268"></a>00268                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
-<a name="l00269"></a>00269                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
-<a name="l00270"></a>00270                                 putchar(<span class="charliteral">&#39;0&#39;</span>);
-<a name="l00271"></a>00271                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
-<a name="l00272"></a>00272                         }
-<a name="l00273"></a>00273                         <span class="keywordflow">if</span> ( i == screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a> &amp;&amp; j == ((screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> &gt; 0) ? screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> - 1 : 0)) {
-<a name="l00274"></a>00274                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
-<a name="l00275"></a>00275                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
-<a name="l00276"></a>00276                                 putchar(<span class="charliteral">&#39;7&#39;</span>);
-<a name="l00277"></a>00277                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
-<a name="l00278"></a>00278                                 putchar(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[i][j]);
-<a name="l00279"></a>00279                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
-<a name="l00280"></a>00280                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
-<a name="l00281"></a>00281                                 putchar(<span class="charliteral">&#39;0&#39;</span>);
-<a name="l00282"></a>00282                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
-<a name="l00283"></a>00283                         } <span class="keywordflow">else</span>
-<a name="l00284"></a>00284                                 putchar(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[i][j]);
-<a name="l00285"></a>00285                 }
-<a name="l00286"></a>00286                 putchar(<span class="charliteral">&#39;\n&#39;</span>);
-<a name="l00287"></a>00287                 fflush(stdout);
-<a name="l00288"></a>00288         }
-<a name="l00289"></a>00289         <span class="keywordflow">if</span> (0 == (i-1) &amp;&amp; 0 == j) {
-<a name="l00290"></a>00290                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
-<a name="l00291"></a>00291                 putchar(<span class="charliteral">&#39;[&#39;</span>);
-<a name="l00292"></a>00292                 putchar(<span class="charliteral">&#39;7&#39;</span>);
-<a name="l00293"></a>00293                 putchar(<span class="charliteral">&#39;m&#39;</span>);
-<a name="l00294"></a>00294                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
-<a name="l00295"></a>00295                 putchar(<span class="charliteral">&#39;[&#39;</span>);
-<a name="l00296"></a>00296                 putchar(<span class="charliteral">&#39;0&#39;</span>);
-<a name="l00297"></a>00297                 putchar(<span class="charliteral">&#39;m&#39;</span>);
-<a name="l00298"></a>00298         }
-<a name="l00299"></a>00299 }
-<a name="l00300"></a>00300 
-<a name="l00301"></a><a class="code" href="screen_8h.html#a0177ce87058c000cebf960249af4f93a">00301</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="screen_8c.html#a0177ce87058c000cebf960249af4f93a">screen_ask</a>(<a class="code" href="struct__screen.html">Screen</a> *screen, <span class="keyword">const</span> <span class="keywordtype">char</span> *question)
-<a name="l00302"></a>00302 {
-<a name="l00303"></a>00303         <span class="keywordtype">size_t</span> i;
-<a name="l00304"></a>00304         screen-&gt;<a class="code" href="struct__screen.html#a781d028e670de73bfe479ddadca6be68">mode</a> = <a class="code" href="screen_8h.html#af3c6399a253649b77c2653d604dd5a5aa2052b6782c9b3afb1981b42436d568fd">SCREEN_INTR</a>; <span class="comment">/* Interrupt screen */</span>
-<a name="l00305"></a>00305         <span class="keywordflow">for</span> (i = 0; i &lt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>; ++i)
-<a name="l00306"></a>00306                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][i] = <span class="charliteral">&#39;#&#39;</span>;
-<a name="l00307"></a>00307         screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][1] = <span class="charliteral">&#39; &#39;</span>;
-<a name="l00308"></a>00308         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR] + 2, question);
-<a name="l00309"></a>00309         screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][2 + strlen(question)] = <span class="charliteral">&#39; &#39;</span>;
-<a name="l00310"></a>00310         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
-<a name="l00311"></a>00311         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
-<a name="l00312"></a>00312         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], <span class="stringliteral">&quot;[y] Yes\t\t[n] No&quot;</span>);
-<a name="l00313"></a>00313         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], <span class="stringliteral">&quot;[c] Cancel&quot;</span>);
-<a name="l00314"></a>00314 
-<a name="l00315"></a>00315         <span class="keywordflow">return</span> 0;
-<a name="l00316"></a>00316 }
-<a name="l00317"></a>00317 
-<a name="l00318"></a><a class="code" href="screen_8h.html#a3d92d296beea39e0ad1875200d573a0b">00318</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#a3d92d296beea39e0ad1875200d573a0b">screen_add_menu</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
-<a name="l00319"></a>00319 {
-<a name="l00320"></a>00320         <span class="keywordtype">size_t</span> i;
-<a name="l00321"></a>00321         <span class="keywordflow">for</span> (i = 0; i &lt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>; ++i)
-<a name="l00322"></a>00322                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][i] = <span class="charliteral">&#39;#&#39;</span>;
-<a name="l00323"></a>00323         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
-<a name="l00324"></a>00324         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
-<a name="l00325"></a>00325         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], <span class="stringliteral">&quot;^O Write Out\t\t^V Cur Pos\t\t^K Cut Line&quot;</span>);
-<a name="l00326"></a>00326         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], <span class="stringliteral">&quot;^C Exit&quot;</span>);
-<a name="l00327"></a>00327 }
+<a name="l00238"></a>00238         <span class="keywordflow">if</span> (pos &gt; screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a>)
+<a name="l00239"></a>00239                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa80a4fe9ecdd3a8b79dc2db41517404f6">SCR_SCROLL_BOTTOM</a>;
+<a name="l00240"></a>00240         screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a> = pos;
+<a name="l00241"></a>00241         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
+<a name="l00242"></a>00242 }
+<a name="l00243"></a>00243 
+<a name="l00244"></a><a class="code" href="screen_8h.html#af0c41a85a5e3adf9b39961bbe1c38b0d">00244</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#af0c41a85a5e3adf9b39961bbe1c38b0d">screen_move_col_right</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00245"></a>00245 {
+<a name="l00246"></a>00246         <span class="keywordflow">if</span> (screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> &gt;= screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>)
+<a name="l00247"></a>00247                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa02c65edc3529942176ba869ba2bc3525">SCR_SCROLL_RIGHT</a>;
+<a name="l00248"></a>00248         ++screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>;
+<a name="l00249"></a>00249         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
+<a name="l00250"></a>00250 }
+<a name="l00251"></a>00251 
+<a name="l00252"></a><a class="code" href="screen_8h.html#a56c82e6071a8cc4712a29e73f05eb9bc">00252</a> <a class="code" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="code" href="screen_8c.html#a56c82e6071a8cc4712a29e73f05eb9bc">screen_move_col_left</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00253"></a>00253 {
+<a name="l00254"></a>00254         <span class="keywordflow">if</span> (screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> &lt;= 0)
+<a name="l00255"></a>00255                 <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aa2a079fe895f617011716528de8210be0">SCR_SCROLL_LEFT</a>;
+<a name="l00256"></a>00256         --screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>;
+<a name="l00257"></a>00257         <span class="keywordflow">return</span> <a class="code" href="screen_8h.html#ad46550a60df0874dffd4e929b5bf0c0aaf7498cdc78eea870c35a63d9ed9088a3">SCR_NORMAL</a>;
+<a name="l00258"></a>00258 }
+<a name="l00259"></a>00259 
+<a name="l00260"></a><a class="code" href="screen_8h.html#ad83cfeb6f20e4d16ed7d3f232ba6fcaf">00260</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#ad83cfeb6f20e4d16ed7d3f232ba6fcaf">screen_delete</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00261"></a>00261 {
+<a name="l00262"></a>00262         <span class="keywordtype">size_t</span> i;
+<a name="l00263"></a>00263         <span class="keywordflow">for</span> (i = screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a>; i &lt; screen-&gt;max_col - 1 &amp;&amp; screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][i] != <span class="charliteral">&#39;\0&#39;</span>; ++i)
+<a name="l00264"></a>00264                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][i] = screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>][i + 1];
+<a name="l00265"></a>00265 }
+<a name="l00266"></a>00266 
+<a name="l00267"></a><a class="code" href="screen_8h.html#af5554e532e6ab6011f2fcd0425cb1f4d">00267</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#af5554e532e6ab6011f2fcd0425cb1f4d">screen_clear_line</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00268"></a>00268 {
+<a name="l00269"></a>00269         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a>], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
+<a name="l00270"></a>00270 }
+<a name="l00271"></a>00271 
+<a name="l00272"></a><a class="code" href="screen_8h.html#ab696d252dbd7f72b03d80edf512383fa">00272</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#ab696d252dbd7f72b03d80edf512383fa">screen_update_cursor</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00273"></a>00273 {
+<a name="l00274"></a>00274 
+<a name="l00275"></a>00275 }
+<a name="l00276"></a>00276 
+<a name="l00277"></a><a class="code" href="screen_8h.html#add7108f128d641f87004c5cbeadbc3f6">00277</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#add7108f128d641f87004c5cbeadbc3f6">screen_flush_out</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00278"></a>00278 {
+<a name="l00279"></a>00279         <span class="keywordtype">size_t</span> i, j;
+<a name="l00280"></a>00280         <span class="keywordflow">if</span> (screen == NULL)
+<a name="l00281"></a>00281                 <span class="keywordflow">return</span>;
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283         <span class="keywordflow">for</span> (i = 0; i &lt; screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a>; ++i) {
+<a name="l00284"></a>00284                 <span class="keywordflow">for</span> (j = 0; j &lt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a> &amp;&amp; screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[i][j] != <span class="charliteral">&#39;\0&#39;</span>; ++j) {
+<a name="l00285"></a>00285                         <span class="keywordflow">if</span> (!i &amp;&amp; j == 5) {
+<a name="l00286"></a>00286                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
+<a name="l00287"></a>00287                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
+<a name="l00288"></a>00288                                 putchar(<span class="charliteral">&#39;1&#39;</span>);
+<a name="l00289"></a>00289                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
+<a name="l00290"></a>00290                         }
+<a name="l00291"></a>00291                         <span class="keywordflow">if</span> (!i &amp;&amp; j == 16) {
+<a name="l00292"></a>00292                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
+<a name="l00293"></a>00293                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
+<a name="l00294"></a>00294                                 putchar(<span class="charliteral">&#39;0&#39;</span>);
+<a name="l00295"></a>00295                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
+<a name="l00296"></a>00296                         }
+<a name="l00297"></a>00297                         <span class="keywordflow">if</span> ( i == screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#ad317f91895de26dff085eff813c3bd35">row</a> &amp;&amp; j == ((screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> &gt; 0) ? screen-&gt;<a class="code" href="struct__screen.html#abe3c1d1e5b776c0c5ae6565993071c45">pos</a>.<a class="code" href="struct__screen__pos.html#a8776daea966db525d0133af3a61762fa">col</a> - 1 : 0)) {
+<a name="l00298"></a>00298                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
+<a name="l00299"></a>00299                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
+<a name="l00300"></a>00300                                 putchar(<span class="charliteral">&#39;7&#39;</span>);
+<a name="l00301"></a>00301                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
+<a name="l00302"></a>00302                                 putchar(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[i][j]);
+<a name="l00303"></a>00303                                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
+<a name="l00304"></a>00304                                 putchar(<span class="charliteral">&#39;[&#39;</span>);
+<a name="l00305"></a>00305                                 putchar(<span class="charliteral">&#39;0&#39;</span>);
+<a name="l00306"></a>00306                                 putchar(<span class="charliteral">&#39;m&#39;</span>);
+<a name="l00307"></a>00307                         } <span class="keywordflow">else</span>
+<a name="l00308"></a>00308                                 putchar(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[i][j]);
+<a name="l00309"></a>00309                 }
+<a name="l00310"></a>00310                 putchar(<span class="charliteral">&#39;\n&#39;</span>);
+<a name="l00311"></a>00311                 fflush(stdout);
+<a name="l00312"></a>00312         }
+<a name="l00313"></a>00313         <span class="keywordflow">if</span> (0 == (i-1) &amp;&amp; 0 == j) {
+<a name="l00314"></a>00314                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
+<a name="l00315"></a>00315                 putchar(<span class="charliteral">&#39;[&#39;</span>);
+<a name="l00316"></a>00316                 putchar(<span class="charliteral">&#39;7&#39;</span>);
+<a name="l00317"></a>00317                 putchar(<span class="charliteral">&#39;m&#39;</span>);
+<a name="l00318"></a>00318                 putchar(<span class="charliteral">&#39;\033&#39;</span>);
+<a name="l00319"></a>00319                 putchar(<span class="charliteral">&#39;[&#39;</span>);
+<a name="l00320"></a>00320                 putchar(<span class="charliteral">&#39;0&#39;</span>);
+<a name="l00321"></a>00321                 putchar(<span class="charliteral">&#39;m&#39;</span>);
+<a name="l00322"></a>00322         }
+<a name="l00323"></a>00323 }
+<a name="l00324"></a>00324 
+<a name="l00325"></a><a class="code" href="screen_8h.html#a0177ce87058c000cebf960249af4f93a">00325</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="screen_8c.html#a0177ce87058c000cebf960249af4f93a">screen_ask</a>(<a class="code" href="struct__screen.html">Screen</a> *screen, <span class="keyword">const</span> <span class="keywordtype">char</span> *question)
+<a name="l00326"></a>00326 {
+<a name="l00327"></a>00327         <span class="keywordtype">size_t</span> i;
+<a name="l00328"></a>00328         screen-&gt;<a class="code" href="struct__screen.html#a781d028e670de73bfe479ddadca6be68">mode</a> = <a class="code" href="screen_8h.html#af3c6399a253649b77c2653d604dd5a5aa2052b6782c9b3afb1981b42436d568fd">SCREEN_INTR</a>; <span class="comment">/* Interrupt screen */</span>
+<a name="l00329"></a>00329         <span class="keywordflow">for</span> (i = 0; i &lt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>; ++i)
+<a name="l00330"></a>00330                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][i] = <span class="charliteral">&#39;#&#39;</span>;
+<a name="l00331"></a>00331         screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][1] = <span class="charliteral">&#39; &#39;</span>;
+<a name="l00332"></a>00332         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR] + 2, question);
+<a name="l00333"></a>00333         screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][2 + strlen(question)] = <span class="charliteral">&#39; &#39;</span>;
+<a name="l00334"></a>00334         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
+<a name="l00335"></a>00335         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
+<a name="l00336"></a>00336         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], <span class="stringliteral">&quot;[y] Yes\t\t[n] No&quot;</span>);
+<a name="l00337"></a>00337         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], <span class="stringliteral">&quot;[c] Cancel&quot;</span>);
+<a name="l00338"></a>00338 
+<a name="l00339"></a>00339         <span class="keywordflow">return</span> 0;
+<a name="l00340"></a>00340 }
+<a name="l00341"></a>00341 
+<a name="l00342"></a><a class="code" href="screen_8h.html#a3d92d296beea39e0ad1875200d573a0b">00342</a> <span class="keywordtype">void</span> <a class="code" href="screen_8c.html#a3d92d296beea39e0ad1875200d573a0b">screen_add_menu</a>(<a class="code" href="struct__screen.html">Screen</a> *screen)
+<a name="l00343"></a>00343 {
+<a name="l00344"></a>00344         <span class="keywordtype">size_t</span> i;
+<a name="l00345"></a>00345         <span class="keywordflow">for</span> (i = 0; i &lt; screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>; ++i)
+<a name="l00346"></a>00346                 screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR][i] = <span class="charliteral">&#39;#&#39;</span>;
+<a name="l00347"></a>00347         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
+<a name="l00348"></a>00348         memset(screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], 0, screen-&gt;<a class="code" href="struct__screen.html#aa8d5b5a17342b1337d4c822bd5c87e1c">max_col</a>);
+<a name="l00349"></a>00349         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 1], <span class="stringliteral">&quot;^O Write Out\t\t^V Cur Pos\t\t^K Cut Line&quot;</span>);
+<a name="l00350"></a>00350         strcpy((<span class="keywordtype">char</span> *) screen-&gt;<a class="code" href="struct__screen.html#af4327de0737b279800c2af465291c161">buffer</a>[screen-&gt;<a class="code" href="struct__screen.html#afe3550fc006eb1ec030665ddd7db5c16">max_row</a> - POST_EDITOR + 2], <span class="stringliteral">&quot;^C Exit&quot;</span>);
+<a name="l00351"></a>00351 }
 </pre></div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -444,7 +468,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="screen_8c.html">screen.c</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 18 2013 09:25:55 for qwerty by
+    <li class="footer">Generated on Fri Jan 18 2013 10:39:10 for qwerty by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

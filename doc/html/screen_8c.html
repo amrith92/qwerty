@@ -129,6 +129,8 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a227537067b93ddb11820c5d6970ea7a2">screen_shift_up</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen, const char *lastline)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a889fe606bbb6b21e8685f5612dd5f40f">screen_reset_col</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a75cd1830d12ef63ec39d9d53b448648b">screen_set_col</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen, const uint16_t pos)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a10ebfd3ca5995113fbeb9fe4e53260b3">screen_insert_tab</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#aa10c4aacf2cc663826207b91d0358e03">screen_insert_tab_here</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen, const uint16_t col)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a6c6f74af174eb2cc68321a3ee5610e32">screen_set_row_pos</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen, const uint16_t pos)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#af0c41a85a5e3adf9b39961bbe1c38b0d">screen_move_col_right</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="screen_8c.html#a56c82e6071a8cc4712a29e73f05eb9bc">screen_move_col_left</a> (<a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *screen)</td></tr>
@@ -156,11 +158,11 @@ Functions</h2></td></tr>
 <div class="memdoc">
 <p>Add the menu to the buffer </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00318">318</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00342">342</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, and <a class="el" href="screen_8h_source.html#l00057">_screen::max_row</a>.</p>
 
-<p>Referenced by <a class="el" href="editor_8c_source.html#l00300">editor_handle_sigint()</a>, <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>, and <a class="el" href="screen_8c_source.html#l00033">screen_init()</a>.</p>
+<p>Referenced by <a class="el" href="editor_8c_source.html#l00316">editor_handle_sigint()</a>, <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>, and <a class="el" href="screen_8c_source.html#l00033">screen_init()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -232,11 +234,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Ask for user input in response to question posed </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00301">301</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00325">325</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00057">_screen::max_row</a>, <a class="el" href="screen_8h_source.html#l00059">_screen::mode</a>, and <a class="el" href="screen_8h_source.html#l00033">SCREEN_INTR</a>.</p>
 
-<p>Referenced by <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>, and <a class="el" href="editor_8c_source.html#l00271">editor_safe_exit()</a>.</p>
+<p>Referenced by <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>, and <a class="el" href="editor_8c_source.html#l00287">editor_safe_exit()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -265,7 +267,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Clear the current line buffer </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00243">243</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00267">267</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, and <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>.</p>
 
@@ -298,7 +300,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Removes the character (if there exists one) from the current position of the screen buffer </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00236">236</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00260">260</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, and <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>.</p>
 
@@ -331,11 +333,11 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Flush screen buffer to output device </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00253">253</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00277">277</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00057">_screen::max_row</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, and <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>.</p>
 
-<p>Referenced by <a class="el" href="editor_8c_source.html#l00300">editor_handle_sigint()</a>, <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>, <a class="el" href="editor_8c_source.html#l00086">editor_loopy()</a>, and <a class="el" href="editor_8c_source.html#l00271">editor_safe_exit()</a>.</p>
+<p>Referenced by <a class="el" href="editor_8c_source.html#l00316">editor_handle_sigint()</a>, <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>, <a class="el" href="editor_8c_source.html#l00086">editor_loopy()</a>, and <a class="el" href="editor_8c_source.html#l00287">editor_safe_exit()</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -376,7 +378,7 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="screen_8c_source.html#l00033">33</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
-<p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>, and <a class="el" href="screen_8c_source.html#l00318">screen_add_menu()</a>.</p>
+<p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>, and <a class="el" href="screen_8c_source.html#l00342">screen_add_menu()</a>.</p>
 
 <p>Referenced by <a class="el" href="editor_8c_source.html#l00013">editor_init()</a>.</p>
 
@@ -400,6 +402,82 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a10ebfd3ca5995113fbeb9fe4e53260b3"></a><!-- doxytag: member="screen.c::screen_insert_tab" ref="a10ebfd3ca5995113fbeb9fe4e53260b3" args="(Screen *screen)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="el" href="screen_8h.html#a10ebfd3ca5995113fbeb9fe4e53260b3">screen_insert_tab</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *&#160;</td>
+          <td class="paramname"><em>screen</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Insert TAB_SPACE at current position </p>
+
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00212">212</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+
+<p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>, <a class="el" href="screen_8h_source.html#l00015">SCR_NORMAL</a>, <a class="el" href="screen_8h_source.html#l00015">SCR_SCROLL_RIGHT</a>, and <a class="el" href="textproperties_8h_source.html#l00004">TAB_SIZE</a>.</p>
+
+<p>Referenced by <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="screen_8c_a10ebfd3ca5995113fbeb9fe4e53260b3_icgraph.png" border="0" usemap="#screen_8c_a10ebfd3ca5995113fbeb9fe4e53260b3_icgraph" alt=""/></div>
+<map name="screen_8c_a10ebfd3ca5995113fbeb9fe4e53260b3_icgraph" id="screen_8c_a10ebfd3ca5995113fbeb9fe4e53260b3_icgraph">
+<area shape="rect" id="node3" href="editor_8h.html#a870f0fc81f531c455c37b753018473c5" title="editor_input" alt="" coords="180,33,268,63"/><area shape="rect" id="node5" href="editor_8h.html#ab76691ea5aeabb7b883f3a148f7ad691" title="editor_load_from_file" alt="" coords="319,7,460,36"/><area shape="rect" id="node11" href="editor_8h.html#a0f287caa0402bad2c177f3de99835182" title="editor_loopy" alt="" coords="511,59,601,88"/><area shape="rect" id="node7" href="editor_8h.html#a92fafc07097aea0bd065f43d6922a3f7" title="editor_init" alt="" coords="517,5,595,35"/><area shape="rect" id="node9" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="651,32,701,61"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa10c4aacf2cc663826207b91d0358e03"></a><!-- doxytag: member="screen.c::screen_insert_tab_here" ref="aa10c4aacf2cc663826207b91d0358e03" args="(Screen *screen, const uint16_t col)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="screen_8h.html#aa3f40a1937b85eaee611fb5d031ef17e">ScreenState</a> <a class="el" href="screen_8h.html#aa10c4aacf2cc663826207b91d0358e03">screen_insert_tab_here</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="screen_8h.html#a1525c41e549d9abafdd15883738ae1b5">Screen</a> *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Insert TAB_SPACE at position </p>
+
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00224">224</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+
+<p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>, <a class="el" href="screen_8h_source.html#l00015">SCR_NORMAL</a>, <a class="el" href="screen_8h_source.html#l00015">SCR_SCROLL_RIGHT</a>, and <a class="el" href="textproperties_8h_source.html#l00004">TAB_SIZE</a>.</p>
+
+<p>Referenced by <a class="el" href="editor_8c_source.html#l00103">editor_input()</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="screen_8c_aa10c4aacf2cc663826207b91d0358e03_icgraph.png" border="0" usemap="#screen_8c_aa10c4aacf2cc663826207b91d0358e03_icgraph" alt=""/></div>
+<map name="screen_8c_aa10c4aacf2cc663826207b91d0358e03_icgraph" id="screen_8c_aa10c4aacf2cc663826207b91d0358e03_icgraph">
+<area shape="rect" id="node3" href="editor_8h.html#a870f0fc81f531c455c37b753018473c5" title="editor_input" alt="" coords="212,33,300,63"/><area shape="rect" id="node5" href="editor_8h.html#ab76691ea5aeabb7b883f3a148f7ad691" title="editor_load_from_file" alt="" coords="351,7,492,36"/><area shape="rect" id="node11" href="editor_8h.html#a0f287caa0402bad2c177f3de99835182" title="editor_loopy" alt="" coords="543,59,633,88"/><area shape="rect" id="node7" href="editor_8h.html#a92fafc07097aea0bd065f43d6922a3f7" title="editor_init" alt="" coords="549,5,627,35"/><area shape="rect" id="node9" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="683,32,733,61"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a56c82e6071a8cc4712a29e73f05eb9bc"></a><!-- doxytag: member="screen.c::screen_move_col_left" ref="a56c82e6071a8cc4712a29e73f05eb9bc" args="(Screen *screen)" -->
 <div class="memitem">
 <div class="memproto">
@@ -416,7 +494,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Move column position left. The same logic applies to this as screen_advance_row </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00228">228</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00252">252</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00015">SCR_NORMAL</a>, and <a class="el" href="screen_8h_source.html#l00015">SCR_SCROLL_LEFT</a>.</p>
 
@@ -449,7 +527,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Move column position right. The same logic applies to this as screen_advance_row </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00220">220</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00244">244</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00015">SCR_NORMAL</a>, and <a class="el" href="screen_8h_source.html#l00015">SCR_SCROLL_RIGHT</a>.</p>
 
@@ -764,7 +842,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Set row position </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00212">212</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00236">236</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 <p>References <a class="el" href="screen_8h_source.html#l00057">_screen::max_row</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>, <a class="el" href="screen_8h_source.html#l00015">SCR_NORMAL</a>, and <a class="el" href="screen_8h_source.html#l00015">SCR_SCROLL_BOTTOM</a>.</p>
 
@@ -873,7 +951,7 @@ Here is the caller graph for this function:</div>
 <div class="memdoc">
 <p>Update cursor </p>
 
-<p>Definition at line <a class="el" href="screen_8c_source.html#l00248">248</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
+<p>Definition at line <a class="el" href="screen_8c_source.html#l00272">272</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
 </div>
 </div>
@@ -905,7 +983,7 @@ Here is the caller graph for this function:</div>
 
 <p>Definition at line <a class="el" href="screen_8c_source.html#l00058">58</a> of file <a class="el" href="screen_8c_source.html">screen.c</a>.</p>
 
-<p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00057">_screen::max_row</a>, <a class="el" href="screen_8h_source.html#l00059">_screen::mode</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>, <a class="el" href="screen_8c_source.html#l00236">screen_delete()</a>, and <a class="el" href="screen_8h_source.html#l00033">SCREEN_NORMAL</a>.</p>
+<p>References <a class="el" href="screen_8h_source.html#l00055">_screen::buffer</a>, <a class="el" href="screen_8h_source.html#l00023">_screen_pos::col</a>, <a class="el" href="screen_8h_source.html#l00058">_screen::max_col</a>, <a class="el" href="screen_8h_source.html#l00057">_screen::max_row</a>, <a class="el" href="screen_8h_source.html#l00059">_screen::mode</a>, <a class="el" href="screen_8h_source.html#l00056">_screen::pos</a>, <a class="el" href="screen_8h_source.html#l00022">_screen_pos::row</a>, <a class="el" href="screen_8c_source.html#l00260">screen_delete()</a>, and <a class="el" href="screen_8h_source.html#l00033">SCREEN_NORMAL</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -938,7 +1016,7 @@ Here is the call graph for this function:</div>
     <ul>
       <li class="navelem"><a class="el" href="screen_8c.html">screen.c</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 18 2013 09:25:55 for qwerty by
+    <li class="footer">Generated on Fri Jan 18 2013 10:39:10 for qwerty by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>
