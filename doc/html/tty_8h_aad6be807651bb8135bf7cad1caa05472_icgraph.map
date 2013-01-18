@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$tty_8h.html#a0cd72d5ed2ff97f10abab8838cc0f94a" title="tty_line_buffer_list_del" alt="" coords="221,63,373,92"/>
+<area shape="rect" id="node16" href="$tty_8h.html#a44f1be008ea2f6b88c1f7b48f8ce3321" title="tty_line_buffer_list_release" alt="" coords="209,127,385,156"/>
+<area shape="rect" id="node5" href="$editor_8h.html#a870f0fc81f531c455c37b753018473c5" title="editor_input" alt="" coords="443,57,531,87"/>
+<area shape="rect" id="node7" href="$editor_8h.html#ab76691ea5aeabb7b883f3a148f7ad691" title="editor_load_from_file" alt="" coords="588,5,729,35"/>
+<area shape="rect" id="node13" href="$editor_8h.html#a0f287caa0402bad2c177f3de99835182" title="editor_loopy" alt="" coords="780,59,871,88"/>
+<area shape="rect" id="node9" href="$editor_8h.html#a92fafc07097aea0bd065f43d6922a3f7" title="editor_init" alt="" coords="787,5,864,35"/>
+<area shape="rect" id="node11" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="920,32,971,61"/>
+<area shape="rect" id="node18" href="$editor_8h.html#ac36d9f1889ae8fb4e49485dfb4b9c2fb" title="editor_release" alt="" coords="436,131,537,160"/>
+<area shape="rect" id="node20" href="$editor_8h.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9" title="editor_handle_sigint" alt="" coords="591,133,727,163"/>
+</map>

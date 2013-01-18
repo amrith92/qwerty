@@ -247,6 +247,22 @@ void editor_input(Editor *editor, const unsigned char in)
 		screen_set_col(&editor->screen, tmp);
 	break;
 
+	case '\t':
+		if (editor->cur->line.length <= editor->cur->line.insertionPoint) {
+			screen_insert_tab(&editor->screen);
+			editor->cur->line.buffer[editor->cur->line.insertionPoint++] = in;
+		} else {
+			screen_insert_tab_here(&editor->screen, editor->cur->line.insertionPoint);
+			for (i = editor->cur->line.length; i > editor->cur->line.insertionPoint; --i) {
+				editor->cur->line.buffer[i] = editor->cur->line.buffer[i-1];
+				screen_putc_here(&editor->screen, editor->cur->line.buffer[i], i + TAB_SIZE);
+			}
+			++editor->cur->line.insertionPoint;
+		}
+		++editor->cur->line.length;
+		editor->is_dirty = 1;
+	break;
+
 	default:
 		if (editor->cur->line.length <= editor->cur->line.insertionPoint)
 			editor->cur->line.buffer[editor->cur->line.insertionPoint++] = in;

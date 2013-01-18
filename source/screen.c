@@ -136,9 +136,9 @@ ScreenState screen_putc(Screen *screen, const unsigned char c)
 		*/
 	}
 	if ('\t' == c) {
-		for (i = screen->pos.col; i < TAB_SIZE; ++i)
-			screen->buffer[screen->pos.row][i] = ' ';
-		screen->pos.col += TAB_SIZE;
+		for (i = 0; i < TAB_SIZE; ++i)
+			screen->buffer[screen->pos.row][screen->pos.col++] = ' ';
+		//screen->pos.col += TAB_SIZE;
 	} else {
 		screen->buffer[screen->pos.row][screen->pos.col++] = c;
 	}
@@ -206,6 +206,30 @@ ScreenState screen_set_col(Screen *screen, const uint16_t pos)
 		return SCR_SCROLL_RIGHT;
 	}
 	screen->pos.col = pos;
+	return SCR_NORMAL;
+}
+
+ScreenState screen_insert_tab(Screen *screen)
+{
+	size_t i;
+	if ((screen->pos.col + TAB_SIZE) > screen->max_col) {
+		return SCR_SCROLL_RIGHT;
+	}
+	for (i = 0; i < TAB_SIZE; ++i)
+		screen->buffer[screen->pos.row][screen->pos.col++] = ' ';
+	//printf("\nSCREEN POS: %d\n", screen->pos.col);
+	return SCR_NORMAL;
+}
+
+ScreenState screen_insert_tab_here(Screen *screen, const uint16_t col)
+{
+	size_t i;
+	if (col > screen->max_col) {
+		return SCR_SCROLL_RIGHT;
+	}
+	screen->pos.col = col;
+	for (i = 0; i < TAB_SIZE; ++i)
+		screen->buffer[screen->pos.row][screen->pos.col++] = ' ';
 	return SCR_NORMAL;
 }
 

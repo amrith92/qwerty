@@ -127,6 +127,16 @@ extern void screen_reset_col(Screen *screen);
 extern ScreenState screen_set_col(Screen *screen, const uint16_t pos);
 
 /**
+ *	Insert TAB_SPACE at current position
+ */
+extern ScreenState screen_insert_tab(Screen *screen);
+
+/**
+ *	Insert TAB_SPACE at position
+ */
+extern ScreenState screen_insert_tab_here(Screen *screen, const uint16_t col);
+
+/**
  *	Set row position
  */
 extern ScreenState screen_set_row_pos(Screen *screen, const uint16_t pos);

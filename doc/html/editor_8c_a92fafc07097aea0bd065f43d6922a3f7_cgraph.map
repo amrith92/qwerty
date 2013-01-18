@@ -1,0 +1,31 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$editor_8c.html#ab76691ea5aeabb7b883f3a148f7ad691" title="editor_load_from_file" alt="" coords="135,512,276,541"/>
+<area shape="rect" id="node54" href="$screen_8c.html#a45a041d05760845729aaf1d94dac8787" title="screen_init" alt="" coords="359,832,444,861"/>
+<area shape="rect" id="node57" href="$screen_8c.html#aa3bea9486c6e869cf5b47ac7c2afa695" title="screen_new" alt="" coords="160,616,251,645"/>
+<area shape="rect" id="node59" href="$tty_8c.html#a02cc640d650969155b4a1d9c981f9860" title="tty_info_get" alt="" coords="160,669,251,698"/>
+<area shape="rect" id="node61" href="$tty_8c.html#a0baf69311260d4951b92390424879f45" title="tty_line_buffer_list_init" alt="" coords="325,88,477,117"/>
+<area shape="rect" id="node5" href="$editor_8c.html#a870f0fc81f531c455c37b753018473c5" title="editor_input" alt="" coords="357,512,445,541"/>
+<area shape="rect" id="node13" href="$screen_8c.html#a889fe606bbb6b21e8685f5612dd5f40f" title="screen_reset_col" alt="" coords="568,32,688,61"/>
+<area shape="rect" id="node52" href="$screen_8c.html#a6c6f74af174eb2cc68321a3ee5610e32" title="screen_set_row_pos" alt="" coords="331,565,472,594"/>
+<area shape="rect" id="node7" href="$tty_8c.html#aaffc9cc111d7e26e90cc1479ff1b2cc6" title="tty_line_buffer_list_new" alt="" coords="549,85,707,114"/>
+<area shape="rect" id="node11" href="$screen_8c.html#ad9648ceaab92b4ff525f74a9a752ffec" title="screen_advance_row" alt="" coords="556,138,700,168"/>
+<area shape="rect" id="node15" href="$screen_8c.html#af2aceb44b119f89a7587bab0deef2a63" title="screen_shift_down" alt="" coords="563,192,693,221"/>
+<area shape="rect" id="node17" href="$screen_8c.html#a56c82e6071a8cc4712a29e73f05eb9bc" title="screen_move_col_left" alt="" coords="553,245,703,274"/>
+<area shape="rect" id="node19" href="$screen_8c.html#ad83cfeb6f20e4d16ed7d3f232ba6fcaf" title="screen_delete" alt="" coords="577,298,679,328"/>
+<area shape="rect" id="node21" href="$screen_8c.html#af5554e532e6ab6011f2fcd0425cb1f4d" title="screen_clear_line" alt="" coords="567,352,689,381"/>
+<area shape="rect" id="node23" href="$screen_8c.html#a227537067b93ddb11820c5d6970ea7a2" title="screen_shift_up" alt="" coords="571,405,685,434"/>
+<area shape="rect" id="node25" href="$screen_8c.html#a9d03f9a6af7b98e7a829161e62d2dc5c" title="screen_retreat_row" alt="" coords="561,458,695,488"/>
+<area shape="rect" id="node27" href="$tty_8c.html#a0cd72d5ed2ff97f10abab8838cc0f94a" title="tty_line_buffer_list_del" alt="" coords="552,512,704,541"/>
+<area shape="rect" id="node31" href="$tty_8c.html#ac13e24f744ca9affd7a08e2a0c40e603" title="tty_line_buffer_list_length" alt="" coords="543,565,713,594"/>
+<area shape="rect" id="node33" href="$tty_8c.html#a5141fcc04c672e1e770eb10c1c0915c9" title="tty_line_buffer_list_grab_line_at" alt="" coords="525,618,731,648"/>
+<area shape="rect" id="node35" href="$screen_8c.html#a0177ce87058c000cebf960249af4f93a" title="screen_ask" alt="" coords="584,672,672,701"/>
+<area shape="rect" id="node37" href="$screen_8c.html#add7108f128d641f87004c5cbeadbc3f6" title="screen_flush_out" alt="" coords="568,725,688,754"/>
+<area shape="rect" id="node39" href="$editor_8c.html#a534da1593df1c9197ac7ee78fc82f61a" title="editor_getch" alt="" coords="581,778,675,808"/>
+<area shape="rect" id="node41" href="$editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37" title="editor_flush" alt="" coords="584,832,672,861"/>
+<area shape="rect" id="node43" href="$screen_8c.html#a75cd1830d12ef63ec39d9d53b448648b" title="screen_set_col" alt="" coords="573,885,683,914"/>
+<area shape="rect" id="node45" href="$screen_8c.html#ae570e92dcaf6729b9c4412d408fe6cfd" title="screen_putc_here" alt="" coords="565,938,691,968"/>
+<area shape="rect" id="node47" href="$screen_8c.html#ae65a306362a584034b28409fe9d97e9e" title="screen_putc" alt="" coords="581,992,675,1021"/>
+<area shape="rect" id="node49" href="$screen_8c.html#a3d92d296beea39e0ad1875200d573a0b" title="screen_add_menu" alt="" coords="564,1045,692,1074"/>
+<area shape="rect" id="node9" href="$tty_8c.html#a57ca6e70423024d9d3110362587e7217" title="tty_line_buffer_new" alt="" coords="789,33,923,62"/>
+<area shape="rect" id="node29" href="$tty_8c.html#aad6be807651bb8135bf7cad1caa05472" title="tty_line_buffer_release" alt="" coords="780,512,932,541"/>
+</map>

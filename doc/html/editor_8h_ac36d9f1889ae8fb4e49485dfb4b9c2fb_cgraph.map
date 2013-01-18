@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$screen_8c.html#a697976b0c9b97b9289fae154d4b357aa" title="screen_release" alt="" coords="192,5,301,35"/>
+<area shape="rect" id="node5" href="$tty_8c.html#a44f1be008ea2f6b88c1f7b48f8ce3321" title="tty_line_buffer_list_release" alt="" coords="159,59,335,88"/>
+<area shape="rect" id="node7" href="$tty_8c.html#aad6be807651bb8135bf7cad1caa05472" title="tty_line_buffer_release" alt="" coords="385,59,537,88"/>
+</map>
