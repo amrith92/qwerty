@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$editor_8c.html#ab163b6984b5acf1083dd1caa8daefe37" title="editor_flush" alt="" coords="185,5,273,35"/>
-<area shape="rect" id="node5" href="$editor_8c.html#a534da1593df1c9197ac7ee78fc82f61a" title="editor_getch" alt="" coords="183,59,276,88"/>
-<area shape="rect" id="node7" href="$screen_8c.html#a0177ce87058c000cebf960249af4f93a" title="screen_ask" alt="" coords="185,112,273,141"/>
-<area shape="rect" id="node9" href="$screen_8c.html#add7108f128d641f87004c5cbeadbc3f6" title="screen_flush_out" alt="" coords="169,165,289,195"/>
-</map>

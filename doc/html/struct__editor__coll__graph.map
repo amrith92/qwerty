@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node2" href="$struct__tty__info.html" title="_tty_info" alt="" coords="5,104,77,133"/>
-<area shape="rect" id="node4" href="$struct__screen.html" title="_screen" alt="" coords="101,104,168,133"/>
-<area shape="rect" id="node6" href="$struct__screen__pos.html" title="_screen_pos" alt="" coords="85,5,181,35"/>
-<area shape="rect" id="node8" href="$struct__tty__line__buffer__list.html" title="_tty_line_buffer_list" alt="" coords="193,104,327,133"/>
-<area shape="rect" id="node10" href="$struct__tty__line__buffer.html" title="_tty_line_buffer" alt="" coords="205,5,315,35"/>
-</map>

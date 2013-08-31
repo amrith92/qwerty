@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$tty_8h.html#a0baf69311260d4951b92390424879f45" title="tty_line_buffer_list_init" alt="" coords="397,5,549,35"/>
-<area shape="rect" id="node9" href="$tty_8h.html#aaffc9cc111d7e26e90cc1479ff1b2cc6" title="tty_line_buffer_list_new" alt="" coords="191,59,348,88"/>
-<area shape="rect" id="node5" href="$editor_8h.html#a92fafc07097aea0bd065f43d6922a3f7" title="editor_init" alt="" coords="797,56,875,85"/>
-<area shape="rect" id="node7" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="931,83,981,112"/>
-<area shape="rect" id="node11" href="$editor_8h.html#a870f0fc81f531c455c37b753018473c5" title="editor_input" alt="" coords="429,59,517,88"/>
-<area shape="rect" id="node13" href="$editor_8h.html#ab76691ea5aeabb7b883f3a148f7ad691" title="editor_load_from_file" alt="" coords="599,57,740,87"/>
-<area shape="rect" id="node16" href="$editor_8h.html#a0f287caa0402bad2c177f3de99835182" title="editor_loopy" alt="" coords="791,109,881,139"/>
-</map>

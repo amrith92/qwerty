@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$editor_8h.html#a0f6ccc7b103a31a6bb49f15fcf1b39a9" title="editor_handle_sigint" alt="" coords="343,29,479,59"/>
-<area shape="rect" id="node6" href="$editor_8h.html#a0f287caa0402bad2c177f3de99835182" title="editor_loopy" alt="" coords="532,95,623,124"/>
-<area shape="rect" id="node10" href="$editor_8h.html#a870f0fc81f531c455c37b753018473c5" title="editor_input" alt="" coords="189,133,277,163"/>
-<area shape="rect" id="node19" href="$editor_8h.html#abf703e317698d313edd75d1e201cb0ee" title="editor_safe_exit" alt="" coords="176,29,291,59"/>
-<area shape="rect" id="node8" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="672,128,723,157"/>
-<area shape="rect" id="node12" href="$editor_8h.html#ab76691ea5aeabb7b883f3a148f7ad691" title="editor_load_from_file" alt="" coords="340,184,481,213"/>
-<area shape="rect" id="node14" href="$editor_8h.html#a92fafc07097aea0bd065f43d6922a3f7" title="editor_init" alt="" coords="539,160,616,189"/>
-</map>
