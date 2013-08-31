@@ -10,8 +10,11 @@ Setup
 =====
 
 Well, it's simple to setup, really.
-Just run:
+Just run
+
+```
 :$ make
+```
 
 from your terminal. You'll find the
 program in the bin folder that this
